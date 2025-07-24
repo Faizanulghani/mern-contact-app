@@ -33,21 +33,25 @@ exports.register = async (req, res) => {
   }
 };
 exports.login = async (req, res) => {
-  let { username, password } = req.body;
-  let user = await userModel.findOne({ username });
-  if (!user) {
-    return res.json({ success: false, message: "Invalid Credentials" });
+  try {
+    let { username, password } = req.body;
+    let user = await userModel.findOne({ username });
+    if (!user) {
+      return res.json({ success: false, message: "Invalid Credentials" });
+    }
+
+    let isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      return res.json({ success: false, message: "Invalid Credentials" });
+    }
+
+    const token = generateToken(user._id);
+    res.cookie("token", token, { httpOnly: true });
+    res.json({ success: true, message: "Logged In Successfully" });
+  } catch (err) {
+    res.json({ success: false, message: err.message });
   }
-
-  let isMatch = await bcrypt.compare(password, user.password);
-
-  if (!isMatch) {
-    return res.json({ success: false, message: "Invalid Credentials" });
-  }
-
-  const token = generateToken(user._id);
-  res.cookie("token", token, { httpOnly: true });
-  res.json({ success: true, message: "Logged In Successfully" });
 };
 exports.logout = async (req, res) => {
   res.clearCookie("token");

@@ -1,13 +1,25 @@
 import { FaGoogle, FaInstagram, FaWhatsapp } from "react-icons/fa";
-import { useAccount } from "./store/store";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 const SignIn = ({ signinActive, setSigninActive }) => {
-  let { handleSignIn } = useAccount();
   let navigate = useNavigate();
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
+
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    const response = await axios.post("http://localhost:5000/api/auth/login", {
+      username,
+      password,
+    });
+    if (response.data.success) {
+      navigate("/contact");
+    } else {
+      alert(response.data.message);
+    }
+  };
 
   return (
     <>
@@ -34,7 +46,7 @@ const SignIn = ({ signinActive, setSigninActive }) => {
         <FaGoogle className="i" />
       </div>
       <br />
-      <form onSubmit={(e) => handleSignIn(username, password, e, navigate)}>
+      <form onSubmit={handleSignIn}>
         <input
           type="text"
           id="username"

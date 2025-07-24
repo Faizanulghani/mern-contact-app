@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-import { ContactProvider } from "./components/store/store";
+// import { ContactProvider } from "./components/store/store";
 import { CiDark, CiLight } from "react-icons/ci";
 import { ToastContainer } from 'react-toastify';
 
@@ -14,7 +14,7 @@ function App() {
   };
 
   return (
-    <ContactProvider>
+    <>
       <ToastContainer />
       <div className={`container ${theme === "dark" ? "dark" : ""}`}>
         <div className="row pt-5">
@@ -46,7 +46,7 @@ function App() {
           )}
         </div>
       </div>
-    </ContactProvider>
+    </>
   );
 }
 

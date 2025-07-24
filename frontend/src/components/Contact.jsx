@@ -22,13 +22,13 @@ const Contact = () => {
 
   let username = sessionStorage.getItem("username");
   let msg = JSON.parse(localStorage.getItem(username)) || {};
-  useEffect(() => {
-    let saveData = JSON.parse(localStorage.getItem(username + "list")) || [];
-    let saveRestore =
-      JSON.parse(localStorage.getItem(username + "restore")) || [];
-    setData(saveData);
-    setRestore(saveRestore);
-  }, [username]);
+  // useEffect(() => {
+  //   let saveData = JSON.parse(localStorage.getItem(username + "list")) || [];
+  //   let saveRestore =
+  //     JSON.parse(localStorage.getItem(username + "restore")) || [];
+  //   setData(saveData);
+  //   setRestore(saveRestore);
+  // }, [username]);
 
   let handleUpdate = (index) => {
     setName(data[index].name);

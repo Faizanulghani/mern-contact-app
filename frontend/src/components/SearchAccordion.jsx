@@ -6,11 +6,11 @@ const SearchAccordion = ({ searchValue, handleSearch }) => {
   let navigate = useNavigate();
   let userName = sessionStorage.getItem("username");
 
-  useEffect(() => {
-    if (!userName) {
-      navigate("/");
-    }
-  }, [userName, navigate]);
+  // useEffect(() => {
+  //   if (!userName) {
+  //     navigate("/");
+  //   }
+  // }, [userName, navigate]);
 
   let handleLogout = () => {
     sessionStorage.removeItem("username");
