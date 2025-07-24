@@ -1,0 +1,207 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.theme {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  cursor: pointer;
+}
+
+.del {
+  position: absolute;
+  bottom: 40px;
+  right: 50px;
+  background-color: red;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+}
+
+.del:hover {
+  background-color: rgb(230, 57, 57);
+}
+
+.icons {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 100% !important;
+  min-height: 100vh;
+  transition: all 0.2s ease;
+}
+
+.dark {
+  background-color: rgb(36, 35, 35);
+}
+
+.day {
+  color: white;
+  font-size: 40px;
+}
+
+.night {
+  color: rgb(26, 25, 25);
+  font-size: 40px;
+}
+
+.lg-color {
+  background-color: currentColor !important;
+}
+
+.login-form {
+  position: relative;
+  z-index: 0;
+}
+
+.login-form h2 {
+  color: #59cad2;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.login-form .i {
+  padding: 8px;
+  border-radius: 50%;
+  border: 1px solid #59cad2;
+  color: #59cad2;
+  margin: 5px 5px;
+  font-size: 38px;
+}
+
+.login-form a {
+  text-decoration: none;
+  color: #59cad2;
+  font-size: 17px;
+}
+
+.login-form button {
+  width: 150px;
+  background-color: #59cad2;
+  color: #fff;
+  border-radius: 25px;
+}
+
+.login-form button:hover {
+  background-color: #59cad2;
+  opacity: 0.8;
+  color: #fff;
+  font-size: 17px;
+}
+
+.msg {
+  color: red;
+}
+
+.login-form .active-box {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background-color: #59cad2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+}
+
+.active-box h2 {
+  color: white;
+}
+
+.active-box p {
+  font-size: 17px;
+}
+
+.active-box button {
+  border: 2px solid #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.illigal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+}
+
+.illigal h1 {
+  font-size: 65px;
+}
+
+.contact-list-box {
+  background-color: #59CAD2;
+  padding: 10px;
+  height: 80vh;
+  border-radius: 5px;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+.contact-list-box .user-icon i {
+  font-size: 65px;
+}
+
+.i {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.accordion .accordion-item button {
+  box-shadow: none !important;
+  border: none;
+  font-size: 22px;
+  color: inherit !important;
+}
+
+.accordion i {
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.option-box {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: -3px;
+  gap: 7px;
+  padding: 4px;
+  border: 1px solid #ccc;
+}
+
+.opacity {
+  opacity: 0;
+
+}
+
+.btn-box {
+  color: #fff !important;
+}
+
+#create-btn {
+  background-color: #59CAD2;
+}
+
+.btn-danger {
+  background-color: rgb(236, 98, 98);
+}
