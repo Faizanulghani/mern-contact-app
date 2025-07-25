@@ -10,10 +10,16 @@ const SignIn = ({ signinActive, setSigninActive }) => {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
-    const response = await axios.post("http://localhost:5000/api/auth/login", {
-      username,
-      password,
-    });
+    const response = await axios.post(
+      "http://localhost:5000/api/auth/login",
+      {
+        username,
+        password,
+      },
+      {
+        withCredentials: true,
+      }
+    );
     if (response.data.success) {
       navigate("/contact");
     } else {

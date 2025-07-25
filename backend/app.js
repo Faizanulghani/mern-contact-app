@@ -3,15 +3,17 @@ const app = express();
 const dotenv = require("dotenv");
 const connectDB = require("./config/config");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 dotenv.config();
 connectDB();
 
 app.use(express.json());
+app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "http://localhost:5174",
     credentials: true,
   })
 );

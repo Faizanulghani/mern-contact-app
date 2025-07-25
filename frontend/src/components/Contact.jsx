@@ -4,6 +4,8 @@ import CreateAccordion from "./CreateAccordion";
 import RestoreAccordion from "./RestoreAccordion";
 import { CiDark, CiLight } from "react-icons/ci";
 import { useNavigate } from "react-router";
+import axios from "axios";
+import { toast } from "react-toastify";
 const Contact = () => {
   let [name, setName] = useState("");
   let [number, setNumber] = useState("");
@@ -22,13 +24,25 @@ const Contact = () => {
 
   let username = sessionStorage.getItem("username");
   let msg = JSON.parse(localStorage.getItem(username)) || {};
-  // useEffect(() => {
-  //   let saveData = JSON.parse(localStorage.getItem(username + "list")) || [];
-  //   let saveRestore =
-  //     JSON.parse(localStorage.getItem(username + "restore")) || [];
-  //   setData(saveData);
-  //   setRestore(saveRestore);
-  // }, [username]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/auth/contact", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        if (res.data.success) {
+          toast.success(res.data.message);
+        } else {
+          alert("Please log in first");
+          navigate("/");
+        }
+      })
+      .catch((err) => {
+        alert("Unauthorized");
+        navigate("/");
+      });
+  }, []);
 
   let handleUpdate = (index) => {
     setName(data[index].name);

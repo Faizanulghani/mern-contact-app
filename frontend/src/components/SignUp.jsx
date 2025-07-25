@@ -20,7 +20,10 @@ const SignUp = ({ setSigninActive, signinActive }) => {
     try {
       const { data } = await axios.post(
         "http://localhost:5000/api/auth/register",
-        { firstname: name, lastname: lastName, gender, username, password }
+        { firstname: name, lastname: lastName, gender, username, password },
+        {
+          withCredentials: true,
+        }
       );
       if (data.success) {
         toast.success(data.message);
@@ -66,7 +69,7 @@ const SignUp = ({ setSigninActive, signinActive }) => {
           className="form-control mb-3"
           value={name}
           onChange={(e) => setName(e.target.value)}
-        />  
+        />
         <input
           id="l-name"
           name="lastname"
@@ -109,9 +112,7 @@ const SignUp = ({ setSigninActive, signinActive }) => {
         <div className="text-center">
           <br />
           <button className="btn">Sign Up</button>
-          <p className="msg">
-            {msg ? "Fill all fields" : ""}
-          </p>
+          <p className="msg">{msg ? "Fill all fields" : ""}</p>
         </div>
       </form>
     </div>
